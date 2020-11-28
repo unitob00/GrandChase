@@ -1,11 +1,19 @@
-import React, {  } from 'react';
-import './Chasecard.css';
+import React from "react";
+import "./Chasecard.css";
 
+function ChaseCard({ name, img, onClick, banned, charsBan, style }) {
+  let classNameBan = "";
 
-function ChaseCard({ name, img }) {
+  if (banned) classNameBan = "Chasecard-banned";
+  if (charsBan) classNameBan += "Chasecard-ban";
+
   return (
-    <div className="Chasecard">
-      <img src={img} alt={img}/>
+    <div
+      className={`${classNameBan} Chasecard`}
+      style={style}
+      onClick={onClick}
+    >
+      <img src={img} alt={img} />
       <h1 className="Chasecard-title">{name}</h1>
     </div>
   );
